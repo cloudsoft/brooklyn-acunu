@@ -1,0 +1,43 @@
+
+Useful references:
+
+	http://www.acunu.com/documentation.html
+
+     
+     
+Setup:
+
+    Currently we assume the following have been installed:
+
+% ls -al /tmp/*.{tgz,war}
+-rw-r--r--  1 alex  wheel      4915 14 Jul 14:08 /tmp/acunu-conf.tgz
+-rw-r--r--  1 alex  wheel  35913540 13 Jul 12:31 /tmp/analytics.war
+-rw-r--r--  1 alex  wheel    200062 13 Jul 12:31 /tmp/aql.war
+-rw-r--r--  1 alex  wheel   4188321 13 Jul 12:31 /tmp/dashboards.war        
+
+
+TODO:
+
+* sample upstream app
+
+* jetty optimal configuration for acunu; currently uses defaults
+    acunu-jetty.xml - request log in particular is too chatty)
+    are "plus" features needed?  (e.g. jndi?)
+    are start-config slf4j+threadpool library references needed?
+    [and see more JVM settings below]
+    
+
+
+NOTES
+
+
+JETTY / ACUNU startup options:
+-Djava.awt.headless=true 
+-Xmx1024M -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/jetty_1373739002.hprof -XX:ErrorFile=/tmp/jetty_hs_err_1373739002.log 
+-Dlog4j.configuration=file:///etc/acunu/log4j.properties 
+-Dcom.sun.management.jmxremote.port=6789 -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.authenticate=false 
+-javaagent:/opt/acunu/jbird/lib/jbird.jar -javaagent:/opt/acunu/jbird/lib/jolokia-jvm-1.0.2-agent.jar=port=9762,host=0.0.0.0
+
+
+CASSANDRA startup options:
+ -ea -XX:+UseThreadPriorities -XX:ThreadPriorityPolicy=42 -Xms3840M -Xmx3840M -Xmn400M -XX:+HeapDumpOnOutOfMemoryError -Xss300k -XX:+UseParNewGC -XX:+UseConcMarkSweepGC -XX:+CMSParallelRemarkEnabled -XX:SurvivorRatio=8 -XX:MaxTenuringThreshold=1 -XX:CMSInitiatingOccupancyFraction=75 -XX:+UseCMSInitiatingOccupancyOnly -Djava.net.preferIPv4Stack=true
