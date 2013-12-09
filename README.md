@@ -76,8 +76,15 @@ For more information consider:
 For commercial enquiries -- including bespoke development and paid support --
 contact Cloudsoft, the supporters of Brooklyn, at:
 
-* www.CloudsoftCorp.com
+* www.cloudsoftcorp.com
 * info@cloudsoftcorp.com
 
-This software is (c) 2013 Cloudsoft Corporation, released as open source under the Apache License v2.0.
+---
 
+&copy; 2013 Cloudsoft Corporation Limited. All rights reserved.
+
+Use of this software is subject to the Cloudsoft EULA, provided in LICENSE.md and at
+
+http://www.cloudsoftcorp.com/cloudsoft-developer-license
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
